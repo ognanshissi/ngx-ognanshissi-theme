@@ -1,0 +1,10 @@
+@import url('./theme/_variables.scss');
+@import url('./theme/_input.scss');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+    --ab-primary-color: #c34343;
+    --ab-secondary-color: dark;
+    --ab-default-button-height: 13px;
+}
