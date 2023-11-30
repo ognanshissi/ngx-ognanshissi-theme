@@ -1,10 +1,19 @@
-@import url('./theme/_variables.scss');
-@import url('./theme/_input.scss');
+@import '@angular/cdk/overlay-prebuild.css';
+@import './theme/variables';
+@import './theme/input';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+// form customisation
+@layer components {
+
+}
+
 :root {
     --ab-primary-color: #c34343;
     --ab-secondary-color: dark;
     --ab-default-button-height: 13px;
+    --ab-btn-border-radius: 14px;
 }
