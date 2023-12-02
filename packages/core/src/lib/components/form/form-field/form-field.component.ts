@@ -1,11 +1,10 @@
-import { AbstractFormFieldConfigOptions } from './../../../configs/form-field.config';
-import { AbstractControlValueAccessorComponent } from './../abstract-control-value.control';
-import { Component, HostBinding, ContentChild, Inject, AfterViewInit } from '@angular/core';
+import { AfterViewInit, Component, ContentChild, HostBinding, Inject } from '@angular/core';
 import {
   AB_FORM_FIELD_OPTIONS,
   DefaultFormFieldConfigOptions,
 } from '../../../configs/form-field.config';
-import { CommonModule } from '@angular/common';
+import { AbstractFormFieldConfigOptions } from './../../../configs/form-field.config';
+import { AbstractControlValueAccessorComponent } from './../abstract-control-value.control';
 import { LabelComponent } from './label.component';
 
 @Component({
@@ -18,11 +17,6 @@ import { LabelComponent } from './label.component';
       <ng-content></ng-content>
     </div>
   `,
-  standalone: true,
-  imports: [
-    CommonModule,
-    LabelComponent
-  ],
   providers: [
     {
       provide: AB_FORM_FIELD_OPTIONS,
@@ -49,7 +43,7 @@ export class FormFieldComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-     console.log(this.formControl);
+    console.log(this.formControl);
   }
 
   @HostBinding('class')
