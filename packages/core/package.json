@@ -1,13 +1,16 @@
 {
-  "name": "@ambroisebazie/core",
+  "name": "@ambroisebazie/ngx-core",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^17.0.0",
     "@angular/core": "^17.0.0",
+    "@angular/forms": "^17.0.0",
     "ngx-mask": "^17.0.4"
   },
   "dependencies": {
     "tslib": "^2.3.0"
   },
+  "publishConfig": {
+    "access": "public"  },
   "sideEffects": false
 }

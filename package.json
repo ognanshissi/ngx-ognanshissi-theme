@@ -5,7 +5,7 @@
   "scripts": {
     "start:demo": "npx nx serve --project demoapp",
     "build:core": "npx nx build --project core",
-    "build:core:watch": "npx nx build --watch --project core"
+    "build:core:watch": "npx nx build --watch --project core --verbose"
   },
   "private": true,
   "devDependencies": {
