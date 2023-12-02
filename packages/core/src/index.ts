@@ -1,1 +1,2 @@
-export * from './lib/core/core.component';
+export * from './lib/components';
+export * from './lib/configs/form-field.config';

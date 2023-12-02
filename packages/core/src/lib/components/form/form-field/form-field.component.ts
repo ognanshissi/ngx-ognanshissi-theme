@@ -1,24 +1,28 @@
 import { AbstractFormFieldConfigOptions } from './../../../configs/form-field.config';
 import { AbstractControlValueAccessorComponent } from './../abstract-control-value.control';
-import { Component, HostBinding, ContentChild, Inject } from '@angular/core';
-import { LabelComponent } from './label.component';
+import { Component, HostBinding, ContentChild, Inject, AfterViewInit } from '@angular/core';
 import {
   AB_FORM_FIELD_OPTIONS,
   DefaultFormFieldConfigOptions,
 } from '../../../configs/form-field.config';
+import { CommonModule } from '@angular/common';
+import { LabelComponent } from './label.component';
 
 @Component({
   selector: 'ab-form-field',
   template: `
     <div class="block">
       <label class="block">
-        <ng-content select="ab-form-label"></ng-content>
+        <ng-content select="ab-label"></ng-content>
       </label>
       <ng-content></ng-content>
     </div>
   `,
   standalone: true,
-  imports: [],
+  imports: [
+    CommonModule,
+    LabelComponent
+  ],
   providers: [
     {
       provide: AB_FORM_FIELD_OPTIONS,
@@ -27,10 +31,10 @@ import {
     },
   ],
 })
-export class FormFieldControlComponent {
+export class FormFieldComponent implements AfterViewInit {
   static nextId = 0;
 
-  @HostBinding('id') componentId = `ab-form-field-id-${FormFieldControlComponent.nextId++}`;
+  @HostBinding('id') componentId = `ab-form-field-id-${FormFieldComponent.nextId++}`;
 
   @ContentChild(LabelComponent)
   labelControl: LabelComponent | undefined;
@@ -40,12 +44,20 @@ export class FormFieldControlComponent {
 
   constructor(
     @Inject(AB_FORM_FIELD_OPTIONS) private formFieldConfig: AbstractFormFieldConfigOptions
-  ) {}
+  ) {
+    console.log(formFieldConfig);
+  }
+
+  ngAfterViewInit(): void {
+     console.log(this.formControl);
+  }
 
   @HostBinding('class')
   get classes() {
     return {
+      'ab-form-field__container': true,
       'ab-form-field__appearance-outline': this.formFieldConfig.appearance === 'outline',
+      'ab-form-field__appearance-fill': this.formFieldConfig.appearance === 'fill',
     };
   }
 }
