@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { AbAnchor, AbButton } from './button';
 
 @NgModule({
-  declaration: [AbButton, AbAnchor],
+  declarations: [AbButton, AbAnchor],
   imports: [CommonModule],
   exports: [AbButton, AbAnchor],
 })

@@ -1,18 +1,15 @@
-import { AfterViewInit, Component, ContentChild, HostBinding, Inject } from '@angular/core';
-import {
-  AB_FORM_FIELD_OPTIONS,
-  DefaultFormFieldConfigOptions,
-} from '../../../configs/form-field.config';
-import { AbstractFormFieldConfigOptions } from './../../../configs/form-field.config';
+import { Component, ContentChild, HostBinding, inject } from '@angular/core';
+import { FormFieldConfigService } from '../../../services/form-field-config.service';
+import { AB_FORM_FIELD_OPTIONS } from '../configs/form-field.config';
 import { AbstractControlValueAccessorComponent } from './../abstract-control-value.control';
 import { LabelComponent } from './label.component';
 
 @Component({
-  selector: 'ab-form-field',
+  selector: 'core-form-field',
   template: `
     <div class="block">
       <label class="block">
-        <ng-content select="ab-label"></ng-content>
+        <ng-content select="core-label"></ng-content>
       </label>
       <ng-content></ng-content>
     </div>
@@ -20,15 +17,20 @@ import { LabelComponent } from './label.component';
   providers: [
     {
       provide: AB_FORM_FIELD_OPTIONS,
-      useClass: DefaultFormFieldConfigOptions,
+      useFactory: (formConfigService: FormFieldConfigService) => {
+        return formConfigService.config;
+      },
+      deps: [FormFieldConfigService],
       multi: true,
     },
   ],
 })
-export class FormFieldComponent implements AfterViewInit {
+export class FormFieldComponent {
   static nextId = 0;
 
-  @HostBinding('id') componentId = `ab-form-field-id-${FormFieldComponent.nextId++}`;
+  private _formFieldConfig = inject(FormFieldConfigService);
+
+  @HostBinding('id') componentId = `core-form-field-id-${FormFieldComponent.nextId++}`;
 
   @ContentChild(LabelComponent)
   labelControl: LabelComponent | undefined;
@@ -36,22 +38,12 @@ export class FormFieldComponent implements AfterViewInit {
   @ContentChild(AbstractControlValueAccessorComponent)
   formControl: AbstractControlValueAccessorComponent<unknown> | undefined;
 
-  constructor(
-    @Inject(AB_FORM_FIELD_OPTIONS) private formFieldConfig: AbstractFormFieldConfigOptions
-  ) {
-    console.log(formFieldConfig);
-  }
-
-  ngAfterViewInit(): void {
-    console.log(this.formControl);
-  }
-
   @HostBinding('class')
   get classes() {
     return {
-      'ab-form-field__container': true,
-      'ab-form-field__appearance-outline': this.formFieldConfig.appearance === 'outline',
-      'ab-form-field__appearance-fill': this.formFieldConfig.appearance === 'fill',
+      'core-form-field__container__wrapper': true,
+      'core-form-field__appearance-outline': this._formFieldConfig.config.appearance === 'outline',
+      'core-form-field__appearance-fill': this._formFieldConfig.config.appearance === 'fill',
     };
   }
 }

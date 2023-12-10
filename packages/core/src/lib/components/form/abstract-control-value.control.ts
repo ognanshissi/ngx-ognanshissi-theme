@@ -1,10 +1,15 @@
-import { Component, Input, booleanAttribute } from '@angular/core';
+import { Component, HostBinding, Input, booleanAttribute } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 
 @Component({
   template: '',
 })
 export class AbstractControlValueAccessorComponent<T = any> implements ControlValueAccessor {
+  static nextId = 0;
+
+  @HostBinding('attr.id')
+  componentId = `component-id-${AbstractControlValueAccessorComponent.nextId}`;
+
   @Input()
   id!: string;
 
@@ -25,11 +30,12 @@ export class AbstractControlValueAccessorComponent<T = any> implements ControlVa
     this.onChange(t);
   }
 
-  writeValue(obj: any): void {
+  writeValue(obj: T): void {
     if (obj) {
       this.value = obj;
     }
   }
+
   registerOnChange(fn: any): void {
     this.onChange = fn;
   }
