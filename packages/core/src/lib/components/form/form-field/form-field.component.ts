@@ -12,11 +12,13 @@ import { LabelComponent } from './label.component';
 @Component({
   selector: 'core-form-field',
   template: `
-    <div class="block">
-      <label class="block mb-1">
-        <ng-content select="core-label"></ng-content>
-      </label>
+    <label class="block mb-1">
+      <ng-content select="core-label"></ng-content>
+    </label>
+    <div class="input__container">
+      <ng-content select="core-prefix"></ng-content>
       <ng-content></ng-content>
+      <ng-content select="core-suffix"></ng-content>
     </div>
     <ng-content select="core-hint"></ng-content>
     <ng-content select="core-error"></ng-content>
