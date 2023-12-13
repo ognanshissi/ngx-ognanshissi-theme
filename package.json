@@ -1,7 +1,11 @@
 {
   "name": "ngx-ognanshissi-theme",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "license": "MIT",
+  "author": {
+    "email": "bazieambroise@gmail.com",
+    "name": "Ambroise BAZIE"
+  },
   "scripts": {
     "start:demo": "npx nx serve --project demoapp",
     "build:core": "npx nx build --project core",

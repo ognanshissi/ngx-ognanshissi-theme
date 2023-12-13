@@ -1,7 +1,7 @@
 import {
-  AB_FORM_FIELD_OPTIONS,
   AbstractFormFieldConfigOptions,
   ButtonModule,
+  CORE_FORM_FIELD_OPTIONS,
   FormFieldModule,
   InputComponent,
 } from '@ambroisebazie/core';
@@ -18,7 +18,7 @@ import { RouterModule } from '@angular/router';
 export class AppComponent {
   title = 'demoapp';
 
-  constructor(@Inject(AB_FORM_FIELD_OPTIONS) private config: AbstractFormFieldConfigOptions) {
+  constructor(@Inject(CORE_FORM_FIELD_OPTIONS) private config: AbstractFormFieldConfigOptions) {
     console.log(config);
   }
 }

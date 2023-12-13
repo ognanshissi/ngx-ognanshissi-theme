@@ -11,7 +11,12 @@ import {
 } from '@angular/core';
 import { ButtonPalette } from './button.types';
 
-const BUTTON_ATTRIBUTES = ['raised-button', 'outlined-button', 'filled-button', 'text-button'];
+const BUTTON_ATTRIBUTES = [
+  'core-raised-button',
+  'core-outlined-button',
+  'core-filled-button',
+  'core-text-button',
+];
 
 @Component({
   template: ``,
@@ -28,11 +33,11 @@ export class ButtonBaseMixins implements OnDestroy, AfterViewInit {
   constructor() {
     BUTTON_ATTRIBUTES.forEach((attr) => {
       if (this._hasHostAttributes(attr)) {
-        this._getHostElement()?.classList.add(`ab-${attr}-container`);
+        this._getHostElement()?.classList.add(`${attr}-container`);
       }
     });
 
-    this._getHostElement()?.classList.add('ab-button-base');
+    this._getHostElement()?.classList.add('core-button-base');
   }
 
   @Input() color: ButtonPalette = 'primary';
@@ -50,12 +55,12 @@ export class ButtonBaseMixins implements OnDestroy, AfterViewInit {
   @HostBinding('class')
   get classes() {
     return {
-      'ab-button-primary': this.color == 'primary',
-      'ab-button-accent': this.color == 'accent',
-      'ab-button-warn': this.color == 'warn',
-      'ab-button--disabled': this.disabled || this.isLoading,
-      'ab-button--loading': this.isLoading,
-      'ab-button--rounded': this.rounded,
+      'core-button-primary': this.color == 'primary',
+      'core-button-accent': this.color == 'accent',
+      'core-button-warn': this.color == 'warn',
+      'core-button--disabled': this.disabled || this.isLoading,
+      'core-button--loading': this.isLoading,
+      'core-button--rounded': this.rounded,
     };
   }
 

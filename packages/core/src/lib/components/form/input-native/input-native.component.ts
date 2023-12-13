@@ -1,5 +1,7 @@
+import { CommonModule } from '@angular/common';
 import { Component, ElementRef, forwardRef } from '@angular/core';
-import { FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { provideNgxMask } from 'ngx-mask';
 import { AbstractControlValueAccessorComponent } from '../abstract-control-value.control';
 
 /**
@@ -19,12 +21,25 @@ url
 week
  */
 @Component({
-  selector: `input[coreInput][type=text], input[coreInput][type=number], input[coreInput][type=email], input[coreInput][type=password], input[coreInput][type=search], input[coreInput][type=tel]`,
+  selector: `
+  input[coreInput][type=text],
+  input[coreInput][type=number],
+  input[coreInput][type=email],
+  input[coreInput][type=password],
+  input[coreInput][type=search],
+  input[coreInput][type=tel],
+  input[coreInput][type=time],
+  input[coreInput][type=url],
+  input[coreInput][type=color],
+  input[coreInput][type=date],
+  input[coreInput][type=week],
+  input[coreInput][type=month]`,
   standalone: true,
   template: ``,
   styleUrls: ['./input-native.component.scss'],
-  imports: [FormsModule],
+  imports: [CommonModule],
   providers: [
+    provideNgxMask(),
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => InputComponent),

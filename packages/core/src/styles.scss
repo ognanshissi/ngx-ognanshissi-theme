@@ -3,27 +3,16 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-    :root {
-        --brand-primary-color: #c143c3;
-        --brand-accent-color: dark;
-        --brand-warn-color: red;
-        --brand-default-button-height: 13px;
-        --brand-btn-border-radius: 14px;
-        // Notifications colors
-        --brand-notification-info-color: '';
-        --brand-notification-warn-color: '';
-        --brand-notification-success-color: '';
-        // Dialog variables
-    }
+:root {
+    --brand-primary-color: #c143c3;
+    --brand-accent-color: dark;
+    --brand-warn-color: red;
+    --brand-default-button-height: 13px;
+    --brand-btn-border-radius: 14px;
+    // Notifications colors
+    --brand-notification-info-color: '';
+    --brand-notification-warn-color: '';
+    --brand-notification-success-color: '';
+    // Dialog variables
 }
-
-@layer components {
-
-// form customisation
-.form-input {
-    
-}
-}
-
 

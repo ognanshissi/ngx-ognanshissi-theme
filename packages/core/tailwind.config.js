@@ -1,6 +1,6 @@
 const { createGlobPatternsForDependencies } = require('@nx/angular/tailwind');
 const { join } = require('path');
-
+const plugin = require('tailwindcss/plugin');
 
 const getColor = (colorVar, { opacityVariable, opacityValue }) => {
   if (opacityValue !== undefined) {
@@ -22,14 +22,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        brand: {
-          primary: (params) => getColor('--brand-primary-color', params)
-        }
-      },
-      textColor: {
-        brand: {
-          primary: (params) => getColor('--brand-primary-color', params)
-        }
+        primary: 'var(--brand-primary-color)'
       }
     },
     container: {
@@ -37,7 +30,8 @@ module.exports = {
       padding: '1rem',
       screens: {
         '2xl': '1280px',
-        '3xl': '1280px'
+        '3xl': '1280px',
+        '4xl': '1280px',
       }
     },
   },
@@ -45,5 +39,6 @@ module.exports = {
     require('@tailwindcss/forms')({
       strategy: "class"
     }),
+    require('./src/theme/tailwind/plugins/button.plugin')
   ],
 };

@@ -11,22 +11,23 @@ import { ButtonBaseMixins } from './button-mixin';
 
 @Component({
   selector:
-    'button[raised-button], button[filled-button], button[outlined-button], button[text-button]',
+    'button[core-raised-button], button[core-filled-button], button[core-outlined-button], button[core-text-button]',
   templateUrl: './button.html',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./button.scss'],
-  exportAs: 'AbButton',
+  exportAs: 'CoreButton',
 })
 export class AbButton extends ButtonBaseMixins {}
 
 @Component({
-  selector: 'a[raised-button], a[filled-button], a[outlined-button], a[text-button]',
+  selector:
+    'a[core-raised-button], a[core-filled-button], a[core-outlined-button], a[core-text-button]',
   templateUrl: './button.html',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./button.scss'],
-  exportAs: 'AbButton, AbAnchor',
+  exportAs: 'CoreAnchor',
 })
 export class AbAnchor extends AbButton implements AfterViewInit, OnDestroy {
   constructor(@Optional() private _ngZone?: NgZone) {

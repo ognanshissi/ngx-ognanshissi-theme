@@ -17,6 +17,15 @@ export class DefaultFormFieldConfigOptions implements AbstractFormFieldConfigOpt
   }
 }
 
-export const AB_FORM_FIELD_OPTIONS = new InjectionToken<AbstractFormFieldConfigOptions>(
-  'AB_FORM_FIELD_OPTIONS'
+export const CORE_FORM_FIELD_OPTIONS = new InjectionToken<AbstractFormFieldConfigOptions>(
+  'Core form field options',
+  {
+    providedIn: 'root',
+    factory: () => new DefaultFormFieldConfigOptions(),
+  }
 );
+
+export const CORE_AUTH_STORAGE_NAME = new InjectionToken<string>('CORE_AUTH_STORAGE_NAME', {
+  providedIn: 'root',
+  factory: () => 'core_access_token',
+});
