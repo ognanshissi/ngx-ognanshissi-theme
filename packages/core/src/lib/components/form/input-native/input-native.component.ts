@@ -48,8 +48,9 @@ week
   ],
 })
 export class InputComponent extends AbstractControlValueAccessorComponent<unknown> {
-  constructor(private _element: ElementRef) {
+  constructor(private _element: ElementRef<InputComponent>) {
     super();
-    this._element.nativeElement.classList.add('form-input');
+    console.log(this._element);
+    // this._element.nativeElement.classList.add('form-input');
   }
 }

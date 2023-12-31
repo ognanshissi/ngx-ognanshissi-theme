@@ -1,1 +1,1 @@
-export type ButtonPalette = 'primary' | 'accent' | 'warn';
+export type ButtonPalette = 'primary' | 'accent' | 'warn' | 'none';

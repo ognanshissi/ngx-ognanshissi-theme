@@ -1,16 +1,11 @@
-import {
-  AbstractFormFieldConfigOptions,
-  ButtonModule,
-  CORE_FORM_FIELD_OPTIONS,
-  FormFieldModule,
-  InputComponent,
-} from '@ambroisebazie/core';
-import { Component, Inject } from '@angular/core';
+import { ButtonModule, FormFieldModule, InputComponent } from '@ambroisebazie/core';
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 @Component({
   standalone: true,
-  imports: [RouterModule, InputComponent, FormFieldModule, ButtonModule],
+  imports: [RouterModule, InputComponent, FormFieldModule, ButtonModule, FormsModule],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -18,7 +13,5 @@ import { RouterModule } from '@angular/router';
 export class AppComponent {
   title = 'demoapp';
 
-  constructor(@Inject(CORE_FORM_FIELD_OPTIONS) private config: AbstractFormFieldConfigOptions) {
-    console.log(config);
-  }
+  username = 'Ambroise BAZIE';
 }

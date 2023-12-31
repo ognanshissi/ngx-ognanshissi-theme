@@ -1,6 +1,7 @@
 import { InjectionToken } from '@angular/core';
 
 export type FormFieldAppearanceOption = 'fill' | 'outline';
+export type FormFieldVariant = '' | '' | '';
 export type FormFieldBorderRounded = 'small' | 'large' | 'full'; // 12px, 20px, 50%
 export abstract class AbstractFormFieldConfigOptions {
   appearance!: FormFieldAppearanceOption;

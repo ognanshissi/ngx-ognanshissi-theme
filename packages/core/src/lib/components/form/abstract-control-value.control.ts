@@ -7,8 +7,8 @@ import { ControlValueAccessor } from '@angular/forms';
 export class AbstractControlValueAccessorComponent<T = any> implements ControlValueAccessor {
   static nextId = 0;
 
-  @HostBinding('attr.id')
-  componentId = `component-id-${AbstractControlValueAccessorComponent.nextId}`;
+  @HostBinding('id')
+  componentId = `core-input-id-${AbstractControlValueAccessorComponent.nextId}`;
 
   @Input()
   id!: string;

@@ -1,8 +1,9 @@
 <div class="p-4">
   <div class="text-2xl text-primary">This text color is from lib</div>
-  <core-form-field class="w-full block pb-2">
+
+  <core-form-field appearance="fill">
     <core-label>Username</core-label>
-    <input coreInput type="date" />
+    <input coreInput type="text" [ngModel]="username" />
     <core-hint>Form hint zone</core-hint>
   </core-form-field>
 
@@ -10,3 +11,9 @@
     <button core-filled-button color="primary" #btn="CoreButton">Filled primary button</button>
   </div>
 </div>
+
+<a [routerLink]="['/home']">Go to home</a> |
+<a core-text-button [routerLink]="['/']">Retour sur la page principale</a>
+
+<hr />
+<router-outlet />

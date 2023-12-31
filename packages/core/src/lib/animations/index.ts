@@ -24,7 +24,7 @@ import {
 } from './slide';
 import { zoomIn, zoomOut } from './zoom';
 
-export const animations = [
+export const coreAnimations = [
   expandCollapse,
   fadeIn,
   fadeInTop,

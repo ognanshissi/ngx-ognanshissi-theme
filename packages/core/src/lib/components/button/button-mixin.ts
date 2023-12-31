@@ -11,11 +11,13 @@ import {
 } from '@angular/core';
 import { ButtonPalette } from './button.types';
 
+// Button appearance
 const BUTTON_ATTRIBUTES = [
   'core-raised-button',
   'core-outlined-button',
   'core-filled-button',
   'core-text-button',
+  'core-button',
 ];
 
 @Component({
@@ -37,6 +39,7 @@ export class ButtonBaseMixins implements OnDestroy, AfterViewInit {
       }
     });
 
+    // core-button-base is used to defined default button appearance
     this._getHostElement()?.classList.add('core-button-base');
   }
 
