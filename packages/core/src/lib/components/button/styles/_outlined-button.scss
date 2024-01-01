@@ -1,0 +1,34 @@
+
+.core__outlined__button__container {
+    
+}
+
+
+// outlined button primary appearance
+.core__outlined__button__container.core__button--primary {
+    @apply text-primary border-primary bg-white;
+
+    // Modifier
+    &:disabled {}
+
+    &:hover {}
+}
+
+// outlined button accent appearance
+.core__outlined__button__container.core__button--accent {
+
+    // Modifier
+    &:disabled {}
+
+    &:hover {}
+}
+
+
+// outlined button warn appearance
+.core__outlined__button__container.core__button--warn {
+
+    // Modifier
+    &:disabled {}
+
+    &:hover {}
+}

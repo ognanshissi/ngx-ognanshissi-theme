@@ -21,7 +21,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: 'var(--brand-primary-color)'
+        primary: 'var(--brand-primary-color)',
+        accent: 'var(--brand-accent)',
+        warn: 'var(--brand-warn-color)'
       }
     },
     container: {

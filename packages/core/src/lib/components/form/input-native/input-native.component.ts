@@ -5,20 +5,23 @@ import { provideNgxMask } from 'ngx-mask';
 import { AbstractControlValueAccessorComponent } from '../abstract-control-value.control';
 
 /**
- * 
-color
-date
-datetime-local
-email
-month
-number
-password
-search
-tel
-text
-time
-url
-week
+ * Default inputs - Native Input Controls
+ * ==========================================
+ *
+ * color
+ * date
+ * datetime-local
+ * email
+ * month
+ * number
+ * password
+ * search
+ * tel
+ * text
+ * time
+ * url
+ * week
+ * -----------------------------------------------------
  */
 @Component({
   selector: `
@@ -48,9 +51,9 @@ week
   ],
 })
 export class InputComponent extends AbstractControlValueAccessorComponent<unknown> {
-  constructor(private _element: ElementRef<InputComponent>) {
+  constructor(private _element: ElementRef) {
     super();
     console.log(this._element);
-    // this._element.nativeElement.classList.add('form-input');
+    this._element.nativeElement.classList.add('form-input');
   }
 }

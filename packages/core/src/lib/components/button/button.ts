@@ -2,6 +2,7 @@ import {
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
+  Input,
   NgZone,
   OnDestroy,
   Optional,
@@ -17,8 +18,13 @@ import { ButtonBaseMixins } from './button-mixin';
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./button.scss'],
   exportAs: 'CoreButton',
+  host: {
+    '[attr.type]': 'type',
+  },
 })
-export class Button extends ButtonBaseMixins {}
+export class Button extends ButtonBaseMixins {
+  @Input() type: 'reset' | 'button' | 'submit' = 'button';
+}
 
 @Component({
   selector:

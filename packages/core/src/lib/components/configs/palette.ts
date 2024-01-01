@@ -1,1 +1,1 @@
-export type VariantPalette = 'primary' | 'secondary' | 'warn' | 'none';
+export type VariantPalette = 'primary' | 'accent' | 'warn' | 'none';

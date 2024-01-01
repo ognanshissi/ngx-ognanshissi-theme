@@ -8,7 +8,7 @@ export class AbstractControlValueAccessorComponent<T = any> implements ControlVa
   static nextId = 0;
 
   @HostBinding('id')
-  componentId = `core-input-id-${AbstractControlValueAccessorComponent.nextId}`;
+  componentId = `core-input-id-${AbstractControlValueAccessorComponent.nextId++}`;
 
   @Input()
   id!: string;

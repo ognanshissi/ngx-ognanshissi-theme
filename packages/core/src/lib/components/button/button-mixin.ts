@@ -35,12 +35,12 @@ export class ButtonBaseMixins implements OnDestroy, AfterViewInit {
   constructor() {
     BUTTON_ATTRIBUTES.forEach((attr) => {
       if (this._hasHostAttributes(attr)) {
-        this._getHostElement()?.classList.add(`${attr}-container`);
+        this._getHostElement()?.classList.add(`${attr.replace(/-/g, '__')}__container`);
       }
     });
 
     // core-button-base is used to defined default button appearance
-    this._getHostElement()?.classList.add('core-button-base');
+    this._getHostElement()?.classList.add('core__button__base');
   }
 
   @Input() color: ButtonPalette = 'primary';
@@ -51,6 +51,8 @@ export class ButtonBaseMixins implements OnDestroy, AfterViewInit {
 
   @Input({ transform: booleanAttribute }) rounded!: boolean;
 
+  @Input({ transform: booleanAttribute }) iconButton!: boolean;
+
   ngAfterViewInit() {
     this._focusMonitor.monitor(this._elementRef, true);
   }
@@ -58,12 +60,13 @@ export class ButtonBaseMixins implements OnDestroy, AfterViewInit {
   @HostBinding('class')
   get classes() {
     return {
-      'core-button-primary': this.color == 'primary',
-      'core-button-accent': this.color == 'accent',
-      'core-button-warn': this.color == 'warn',
-      'core-button--disabled': this.disabled || this.isLoading,
-      'core-button--loading': this.isLoading,
-      'core-button--rounded': this.rounded,
+      'core__button--primary': this.color == 'primary',
+      'core__button--accent': this.color == 'accent',
+      'core__button--warn': this.color == 'warn',
+      'core__button--disabled': this.disabled || this.isLoading,
+      'core__button--loading': this.isLoading,
+      'core__button--rounded': this.rounded,
+      core__button__icon: this.iconButton,
     };
   }
 

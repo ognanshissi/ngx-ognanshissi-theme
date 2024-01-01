@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'core-hint',
-  template: `<span [attr.role]="'hint'" class="block text-[9px] font-mono text-gray-700">
+  template: `<span class="block text-[9px] font-mono text-gray-700" [attr.aria-label]="ariaLabel">
     <ng-content></ng-content>
   </span>`,
 })
-export class FormHintComponent {}
+export class FormHintComponent {
+  @Input() ariaLabel!: string;
+}

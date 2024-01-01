@@ -1,3 +1,19 @@
-.core-button-base {
-    
+@use "./styles/filled-button";
+@use "./styles/outlined-button";
+
+.core__button__base {
+    @apply  px-2 py-1 appearance-none outline-none;
+    border: 1px solid transparent;
+    font-size: var(--brand-btn-font-size);
+    border-radius: var(--brand-btn-border-radius);
+}
+
+// Icon and rounded button
+.core__button__icon, 
+.core__button--rounded {
+    @apply rounded-full;
+}
+
+.core__button__icon {
+    @apply h-8 w-8;
 }

@@ -1,16 +1,25 @@
 <div class="p-4">
   <div class="text-2xl text-primary">This text color is from lib</div>
 
-  <core-form-field appearance="fill">
+  <core-form-field>
     <core-label>Username</core-label>
-    <input coreInput type="text" [ngModel]="username" />
+    <input coreInput type="text" [(ngModel)]="username" />
     <core-hint>Form hint zone</core-hint>
   </core-form-field>
 
+  <core-form-field>
+    <core-label>Last name</core-label>
+    <input coreInput type="email" [ngModel]="lastName" />
+  </core-form-field>
+
   <div class="flex flex-col space-y-4">
-    <button core-filled-button color="primary" #btn="CoreButton">Filled primary button</button>
+    <button core-filled-button color="primary">Filled primary button</button> &nbsp;
+    <button core-outlined-button color="primary">Outline primary button</button> &nbsp;
+    <button core-outlined-button rounded color="primary">Outline primary button</button>
   </div>
 </div>
+
+<br />
 
 <a [routerLink]="['/home']">Go to home</a> |
 <a core-text-button [routerLink]="['/']">Retour sur la page principale</a>

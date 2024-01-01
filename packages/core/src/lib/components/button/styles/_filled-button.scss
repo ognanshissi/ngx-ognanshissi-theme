@@ -1,0 +1,36 @@
+// Filled button 
+.core__filled__button__container {
+}
+
+// Filled button primary appearance
+.core__filled__button__container.core__button--primary {
+    @apply bg-primary;
+    border-color: var(--brand-primary-color) !important;
+    color: white;
+
+    // Modifier
+    &:disabled {
+
+    }
+
+    &:hover {
+
+    }
+}
+
+// Filled button accent appearance
+.core__filled__button__container.core__button--accent {
+    // Modifier
+        &:disabled {}
+    
+        &:hover {}
+}
+
+
+// Filled button warn appearance
+.core__filled__button__container.core__button--warn {
+    // Modifier
+        &:disabled {}
+    
+        &:hover {}
+}
