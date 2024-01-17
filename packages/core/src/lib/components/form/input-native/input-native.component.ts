@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, forwardRef } from '@angular/core';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Component, ElementRef, HostBinding } from '@angular/core';
 import { provideNgxMask } from 'ngx-mask';
 import { AbstractControlValueAccessorComponent } from '../abstract-control-value.control';
 
@@ -41,19 +40,15 @@ import { AbstractControlValueAccessorComponent } from '../abstract-control-value
   template: ``,
   styleUrls: ['./input-native.component.scss'],
   imports: [CommonModule],
-  providers: [
-    provideNgxMask(),
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => InputComponent),
-      multi: true,
-    },
-  ],
+  providers: [provideNgxMask()],
 })
-export class InputComponent extends AbstractControlValueAccessorComponent<unknown> {
+export class InputComponent {
+  static nextId = 0;
+
+  @HostBinding('id')
+  componentId = `core-input-id-${AbstractControlValueAccessorComponent.nextId++}`;
+
   constructor(private _element: ElementRef) {
-    super();
-    console.log(this._element);
     this._element.nativeElement.classList.add('form-input');
   }
 }

@@ -1,5 +1,4 @@
 import {
-  AfterContentInit,
   Component,
   ContentChild,
   HostBinding,
@@ -27,15 +26,15 @@ import { LabelComponent } from './label.component';
       <ng-content select="core-label"></ng-content>
     </label>
     <div class="input__container">
-      <ng-content select="core-prefix"></ng-content>
-      <ng-content select="[coreInput]"></ng-content>
-      <ng-content select="core-suffix"></ng-content>
+      <ng-content select="core-icon[corePrefix], button[corePrefix]"></ng-content>
+      <ng-content select="input[coreInput]"></ng-content>
+      <ng-content select="core-icon[coreSuffix], button[coreSuffix]"></ng-content>
     </div>
     <ng-content select="core-hint"></ng-content>
     <ng-content select="core-error"></ng-content>
   `,
 })
-export class FormFieldComponent implements AfterContentInit {
+export class FormFieldComponent {
   constructor(
     @Optional()
     @Inject(CORE_FORM_FIELD_OPTIONS)
@@ -69,11 +68,5 @@ export class FormFieldComponent implements AfterContentInit {
       'core-form-field__rouned--small': this._formFieldOptions.rounded === 'small',
       'core-form-field__rouned--none': this._formFieldOptions.rounded === undefined,
     };
-  }
-
-  ngAfterContentInit(): void {
-    if (this.inputControl) {
-      console.log(this.inputControl.componentId);
-    }
   }
 }

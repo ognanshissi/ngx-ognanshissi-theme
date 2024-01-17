@@ -22,7 +22,7 @@ module.exports = {
     extend: {
       colors: {
         primary: 'var(--brand-primary-color)',
-        accent: 'var(--brand-accent)',
+        accent: 'var(--brand-accent-color)',
         warn: 'var(--brand-warn-color)'
       }
     },
